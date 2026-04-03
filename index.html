@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Output Toolkit (AOT)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/css/newfull.css">
+  <link rel="stylesheet" href="puppertino-overrides.css">
+</head>
+<body>
+  <script>
+    (function() {
+      var theme = 'light';
+      try {
+        theme = localStorage.getItem('resolume-theme') || 'light';
+      } catch (e) {
+        theme = 'light';
+      }
+      if (theme === 'light') {
+        document.body.classList.add('light-theme', 'p-light');
+      } else {
+        document.body.classList.add('p-dark');
+      }
+    })();
+  </script>
+  <div id="boot-splash" role="status" aria-live="polite">
+    <div class="boot-spinner" aria-hidden="true"></div>
+    <div class="boot-text">Loading Advanced Output Toolkit...</div>
+  </div>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/codedgar/Puppertino@latest/dist/js/modals.js"></script>
+  <script src="https://unpkg.com/dxf@5.3.1/dist/dxf.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

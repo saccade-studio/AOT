@@ -1,0 +1,11 @@
+{
+  "name": "advanced-output-toolkit",
+  "version": "1.0.0",
+  "description": "Advanced Output Toolkit (AOT) — SVG/DXF to Resolume Arena Advanced Output XML converter",
+  "author": "Saccade Visuals",
+  "license": "MIT",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "start": "python3 -m http.server 8080"
+  }
+}
