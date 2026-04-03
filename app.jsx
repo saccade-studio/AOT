@@ -3894,7 +3894,7 @@ function Svg2XmlApp() {
       localStorage.setItem('resolume-use-artboard', JSON.stringify(useArtboard));
     } catch (e) {}
   }, [useArtboard]);
-  
+
   // Section collapse/expand toggle
   const toggleSection = useCallback((sectionId) => {
     setCollapsedSections(prev => ({
@@ -6406,20 +6406,14 @@ function Svg2XmlApp() {
         }
         
         button, label, input, select {
-          outline: none !important;
-          box-shadow: none !important;
-        }
-        button:focus, button:active, button:focus-visible, button:focus-within,
-        label:focus, label:active, label:focus-visible,
-        input:focus, input:active, select:focus, select:active {
-          outline: none !important;
           box-shadow: none !important;
         }
         button::-moz-focus-inner {
           border: 0 !important;
         }
-        *:focus {
-          outline: none !important;
+        button:focus-visible, input:focus-visible, select:focus-visible {
+          outline: 2px solid var(--accent) !important;
+          outline-offset: 2px !important;
         }
         
         /* Main container - single column mode */
@@ -6500,6 +6494,7 @@ function Svg2XmlApp() {
           width: 100%;
           min-width: 0;
         }
+
       `}</style>
       <div style={themeStyles.gridOverlay}></div>
       
@@ -6777,7 +6772,7 @@ const styles = {
   presetButton: { padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.15)', borderRadius: '5px', color: '#ccc', fontSize: '11px', cursor: 'pointer', transition: 'all 0.15s', outline: 'none' },
   presetButtonActive: { backgroundColor: 'rgba(59, 130, 246, 0.2)', border: '1px solid #3b82f6', color: '#3b82f6' },
   presetButtonInactive: { backgroundColor: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#ccc' },
-  buttonGroup: { display: 'flex', gap: '4px' },
+  buttonGroup: { display: 'flex', gap: '4px', flexWrap: 'wrap' },
   toggleButton: { padding: '6px 12px', backgroundColor: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.15)', borderRadius: '4px', color: '#ccc', fontSize: '11px', cursor: 'pointer', transition: 'all 0.15s', outline: 'none' },
   toggleButtonActive: { backgroundColor: 'rgba(59, 130, 246, 0.2)', borderColor: '#3b82f6', color: '#3b82f6' },
   toggleButtonInactive: { backgroundColor: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#ccc' },
@@ -6797,7 +6792,7 @@ const styles = {
   addScreenBtn: { padding: '8px 16px', backgroundColor: 'rgba(59, 130, 246, 0.15)', border: '1px solid rgba(59, 130, 246, 0.5)', borderRadius: '5px', color: '#3b82f6', fontSize: '11px', fontWeight: '600', cursor: 'pointer', outline: 'none' },
   shapesToolbar: { display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'flex-end', marginBottom: '12px' },
   outputTypeGroup: { display: 'flex', flexDirection: 'column', gap: '4px' },
-  outputTypeButtons: { display: 'flex', gap: '4px' },
+  outputTypeButtons: { display: 'flex', gap: '4px', flexWrap: 'wrap' },
   outputTypeBtn: { padding: '6px 12px', backgroundColor: 'rgba(255, 255, 255, 0.08)', border: '1px solid rgba(255, 255, 255, 0.15)', borderRadius: '4px', color: '#ccc', fontSize: '10px', cursor: 'pointer', outline: 'none' },
   outputTypeBtnActive: { backgroundColor: 'rgba(59, 130, 246, 0.2)', borderColor: '#3b82f6', color: '#3b82f6' },
   outputTypeBtnInactive: { backgroundColor: 'rgba(255, 255, 255, 0.08)', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#ccc' },
@@ -6837,7 +6832,7 @@ const styles = {
   arenaExportButtonHover: { transform: 'translateY(-1px)', boxShadow: '0 10px 22px rgba(43, 82, 68, 0.55)' },
   previewContainer: { position: 'relative', backgroundColor: '#000', borderRadius: '0', overflow: 'visible', margin: '0 auto' },
   previewSvg: { display: 'block' },
-  previewPlaceholder: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontSize: '12px' },
+  previewPlaceholder: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontSize: '12px', padding: '10px 10px 30px 10px', textAlign: 'center', pointerEvents: 'none' },
   previewLegend: { position: 'absolute', top: '12px', left: '12px', backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '12px 14px', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '8px', pointerEvents: 'none' },
   legendItem: { display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' },
   legendDot: { width: '16px', height: '16px', borderRadius: '3px' },
